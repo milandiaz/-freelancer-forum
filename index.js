@@ -17,9 +17,8 @@ function makeFreelancer() {
   const occupation =
     OCCUPATIONS[Math.floor(Math.random() * OCCUPATIONS.length)];
   const rate =
-    PRICE_RANGE[
-      Math.floor(Math.random() * (MAX_RATE - MIN_RATE + 1)) + MIN_RATE
-    ];
+    Math.floor(Math.random() * (PRICE_RANGE.max - PRICE_RANGE.min + 1)) +
+    PRICE_RANGE.min;
 
   return { name, occupation, rate };
 }
@@ -31,7 +30,7 @@ function averageRate(freelancers) {
     (sum, freelancer) => sum + freelancer.rate,
     0
   );
-  const average = (rateSum / freelancers.length).toFixed(5);
+  const average = (rateSum / freelancers.length).toFixed(2);
 
   return average;
 }
@@ -50,7 +49,13 @@ function freelancerRow(freelancer) {
   return tr;
 }
 
-function FreelancerRows() {}
+function FreelancerRows() {
+  const tbody = document.createElement("tbody");
+  freelancers.forEach((freelancer) => {
+    tbody.appendChild(freelancerRow(freelancer));
+  });
+  return tbody;
+}
 
 function render() {
   const $app = document.querySelector("#app");

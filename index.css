@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  text-align: center;
+  padding: 20px 40px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 8px 16px;
+  text-align: left;
+}
