@@ -51,3 +51,25 @@ function freelancerRow(freelancer) {
 }
 
 function FreelancerRows() {}
+
+function render() {
+  const $app = document.querySelector("#app");
+  $app.innerHTML = `
+  <h1>Freelancer Forum</h1>
+  <p>The average rate is $${avrgRate}.</p>
+  <table>
+  <thead>
+  <tr>
+  <th>NAME</th>
+  <th>OCCUPATION</th>
+  <th>RATE</th>
+  </tr>
+  </thead>
+  <tbody id="FreelancerRows"></tbody>
+  </table>
+
+`;
+  $app.querySelector("#FreelancerRows").replaceWith(FreelancerRows());
+}
+
+render();
